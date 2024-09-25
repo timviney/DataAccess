@@ -9,7 +9,6 @@ public class FunctionTest
     [Fact]
     public void TestToUpperFunction()
     {
-
         // Invoke the lambda function and confirm the string returned
         var function = new Function();
         var context = new TestLambdaContext();
