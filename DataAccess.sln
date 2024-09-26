@@ -11,9 +11,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A879A505-F58
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{E3D05D1C-91E8-4F26-A9E2-0B8A44F88749}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SudokuProblems", "SudokuProblems\SudokuProblems.csproj", "{4F5808B8-DB8B-4B96-8A50-2D4CC7562653}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SudokuProblems", "src\SudokuProblems\SudokuProblems.csproj", "{4F5808B8-DB8B-4B96-8A50-2D4CC7562653}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess.Structures", "DataAccess.Structures\DataAccess.Structures.csproj", "{9436FB56-ACD2-4114-8D8D-EA184FD59A29}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess.Structures", "src\DataAccess.Structures\DataAccess.Structures.csproj", "{9436FB56-ACD2-4114-8D8D-EA184FD59A29}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

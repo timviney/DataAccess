@@ -15,7 +15,7 @@
     <PackageReference Include="Amazon.Lambda.Serialization.SystemTextJson" Version="2.4.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\DataAccess.Structures\DataAccess.Structures.csproj" />
-    <ProjectReference Include="..\..\SudokuProblems\SudokuProblems.csproj" />
+    <ProjectReference Include="..\DataAccess.Structures\DataAccess.Structures.csproj" />
+    <ProjectReference Include="..\SudokuProblems\SudokuProblems.csproj" />
   </ItemGroup>
 </Project>
