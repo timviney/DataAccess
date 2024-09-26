@@ -38,7 +38,7 @@ jobs:
           IMAGE_TAG: latest
         run: |
           # Navigate to the directory containing the Dockerfile
-          cd src/DataAccess
+          cd src
           
           # Build the Docker image for the C# application
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f Dockerfile .
