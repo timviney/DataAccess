@@ -21,6 +21,14 @@ RUN dotnet build "DataAccess/DataAccess.csproj" -c Release -o /app/build
 # Publish the app to the /app/publish folder with a specific Runtime Identifier (RID)
 RUN dotnet publish "DataAccess/DataAccess.csproj" -c Release -o /app/publish -r linux-x64 --self-contained=false
 
+# Download the Lambda Runtime Interface Emulator
+RUN curl -Lo /usr/local/bin/aws-lambda-rie \
+     https://github.com/aws/aws-lambda-runtime-interface-emulator/releases/latest/download/aws-lambda-rie && \
+     chmod +x /usr/local/bin/aws-lambda-rie
+
+# Set the entrypoint to use the emulator with your Lambda handler
+ENTRYPOINT [ "/usr/local/bin/aws-lambda-rie", "dotnet", "DataAccess.dll::DataAccess.Function::FunctionHandler" ]
+
 # Create the final image based on the Lambda runtime
 FROM public.ecr.aws/lambda/dotnet:8
 
