@@ -1,4 +1,7 @@
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using Amazon.Lambda.Core;
+using DataAccess.Structures;
 
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.SystemTextJson.DefaultLambdaJsonSerializer))]
@@ -16,6 +19,13 @@ public class Function
     /// <returns></returns>
     public string FunctionHandler(string input, ILambdaContext context)
     {
-        return "CSharp Lambda is up and running !!!";
+        var request = JsonSerializer.Deserialize<LambdaRequest>(input);
+
+        return request!.Table switch
+        {
+            DbTable.NA => "Please specify table!",
+            DbTable.SudokuProblems => SudokuProblems.LambdaFunction.FunctionHandler(request),
+            _ => throw new ArgumentOutOfRangeException()
+        };
     }
 }
