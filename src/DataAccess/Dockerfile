@@ -26,4 +26,4 @@ FROM public.ecr.aws/lambda/dotnet:8
 COPY --from=build /app/publish/* ${LAMBDA_TASK_ROOT}
 
 # Set the CMD to your handler (could also be done as a parameter override outside of the Dockerfile)
-CMD [ "DataAccess::DataAccess.Function::DataAccess" ]
+CMD [ "DataAccess::DataAccess.Function::FunctionHandler" ]
