@@ -9,13 +9,15 @@ public class Function
 {
     
     /// <summary>
-    /// A simple function that takes a string and does a ToUpper
+    /// A simple function that takes a string and returns both the upper and lower case version of the string.
     /// </summary>
     /// <param name="input">The event for the Lambda function handler to process.</param>
     /// <param name="context">The ILambdaContext that provides methods for logging and describing the Lambda environment.</param>
     /// <returns></returns>
-    public string FunctionHandler(string input, ILambdaContext context)
+    public Casing FunctionHandler(string input, ILambdaContext context)
     {
-        return "CSharp Lambda up and running !!!";
+        return new Casing(input.ToLower(), input.ToUpper());
     }
 }
+
+public record Casing(string Lower, string Upper);
