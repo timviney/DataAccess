@@ -8,12 +8,15 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess.Tests", "test\DataAccess.Tests\DataAccess.Tests.csproj", "{4052F657-F9C3-4927-A24D-DF1904FE464D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A879A505-F587-406E-B53F-9ED18C3A12C6}"
+	ProjectSection(SolutionItems) = preProject
+		src\Dockerfile = src\Dockerfile
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{E3D05D1C-91E8-4F26-A9E2-0B8A44F88749}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SudokuProblems", "src\SudokuProblems\SudokuProblems.csproj", "{4F5808B8-DB8B-4B96-8A50-2D4CC7562653}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SudokuProblems", "src\SudokuProblems\SudokuProblems.csproj", "{4F5808B8-DB8B-4B96-8A50-2D4CC7562653}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess.Structures", "src\DataAccess.Structures\DataAccess.Structures.csproj", "{9436FB56-ACD2-4114-8D8D-EA184FD59A29}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess.Structures", "src\DataAccess.Structures\DataAccess.Structures.csproj", "{9436FB56-ACD2-4114-8D8D-EA184FD59A29}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
