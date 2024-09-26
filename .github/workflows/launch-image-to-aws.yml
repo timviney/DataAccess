@@ -37,8 +37,12 @@ jobs:
           ECR_REPOSITORY: csharp-ecr/dataaccess-container
           IMAGE_TAG: latest
         run: |
+          # Navigate to the directory containing the Dockerfile
+          cd DataAccess/src/DataAccess
+          
           # Build the Docker image for the C# application
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f Dockerfile .
+      
           # Push the Docker image to ECR
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
