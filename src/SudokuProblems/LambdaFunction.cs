@@ -11,7 +11,7 @@ namespace SudokuProblems
 {
     public static class LambdaFunction
     {
-        public static string FunctionHandler(LambdaRequest request)
+        public static IReturnValue FunctionHandler(LambdaRequest request)
         {
             try
             {
@@ -19,13 +19,13 @@ namespace SudokuProblems
                 {
                     var sudokuRequest = request.RequestParameters.Deserialize<SudokuProblemsRequest>();
                     var problem = Random.Get(sudokuRequest!.Difficulty);
-                    return JsonSerializer.Serialize(problem);
+                    return ReturnValue<Sudoku>.NewSuccessReturn(problem);
                 }
-                else return $"Do not recognise method {request.Method}!";
+                else return Error.NewReturnValue($"Do not recognise method {request.Method}!");
             }
             catch (Exception e)
             {
-                return $"ERROR! {e}";
+                return Error.NewReturnValue($"ERROR! {e}");
             }
         }
     }

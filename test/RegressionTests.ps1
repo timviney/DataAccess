@@ -1,1 +1,1 @@
-curl -XPOST "http://localhost:9000/2015-03-31/functions/function/invocations" -d '"{\"Table\" : 1, \"Method\" : \"Random\", \"RequestParameters\" : {} }"'
+curl -XPOST "http://localhost:9000/2015-03-31/functions/function/invocations" -d '{"Table" : 1, "Method" : "Random", "RequestParameters" : {"Difficulty" : 1} }'

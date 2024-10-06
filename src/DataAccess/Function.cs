@@ -17,15 +17,15 @@ public class Function
     /// <param name="input">The event for the Lambda function handler to process.</param>
     /// <param name="context">The ILambdaContext that provides methods for logging and describing the Lambda environment.</param>
     /// <returns></returns>
-    public string FunctionHandler(string input, ILambdaContext context)
+    public JsonElement FunctionHandler(LambdaRequest input, ILambdaContext context)
     {
-        var request = JsonSerializer.Deserialize<LambdaRequest>(input);
-
-        return request!.Table switch
+        var result = input!.Table switch
         {
-            DbTable.NA => "Please specify table!",
-            DbTable.SudokuProblems => SudokuProblems.LambdaFunction.FunctionHandler(request),
+            DbTable.NA => Error.NewReturnValue("Please specify table!"),
+            DbTable.SudokuProblems => SudokuProblems.LambdaFunction.FunctionHandler(input),
             _ => throw new ArgumentOutOfRangeException()
         };
+
+        return result.AsJsonElement();
     }
 }
