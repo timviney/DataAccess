@@ -4,7 +4,7 @@
     {
         public static Sudoku Get(Difficulty? difficulty = null)
         {
-            return DefaultProblem.Get();
+            return MockDb.Get();
         }
     }
 }
