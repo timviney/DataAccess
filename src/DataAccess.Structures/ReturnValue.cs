@@ -9,6 +9,10 @@ namespace DataAccess.Structures
 {
     public class ReturnValue<TResult> : IReturnValue
     {
+        private static readonly JsonSerializerOptions Options = new()
+        {
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+        };
         public int StatusCode { get; set; }
         public bool Success { get; set; }
 
@@ -29,7 +33,8 @@ namespace DataAccess.Structures
         public JsonElement AsJsonElement()
         {
             // Do this at a subclass level so that all parameters come through
-            return JsonSerializer.SerializeToElement(this);
+            return JsonSerializer.SerializeToElement(this, Options);
         }
+
     }
 }
