@@ -13,10 +13,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A879A505-F58
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{E3D05D1C-91E8-4F26-A9E2-0B8A44F88749}"
+	ProjectSection(SolutionItems) = preProject
+		test\BuildAndRun.ps1 = test\BuildAndRun.ps1
+		test\RegressionTests.ps1 = test\RegressionTests.ps1
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SudokuProblems", "src\SudokuProblems\SudokuProblems.csproj", "{4F5808B8-DB8B-4B96-8A50-2D4CC7562653}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess.Structures", "src\DataAccess.Structures\DataAccess.Structures.csproj", "{9436FB56-ACD2-4114-8D8D-EA184FD59A29}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AwsDynamoDb", "src\AwsDynamoDb\AwsDynamoDb.csproj", "{87F7A8BA-4F17-4DC3-8688-A933ACAEE33F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,6 +46,10 @@ Global
 		{9436FB56-ACD2-4114-8D8D-EA184FD59A29}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9436FB56-ACD2-4114-8D8D-EA184FD59A29}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9436FB56-ACD2-4114-8D8D-EA184FD59A29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87F7A8BA-4F17-4DC3-8688-A933ACAEE33F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87F7A8BA-4F17-4DC3-8688-A933ACAEE33F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87F7A8BA-4F17-4DC3-8688-A933ACAEE33F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87F7A8BA-4F17-4DC3-8688-A933ACAEE33F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,6 +59,7 @@ Global
 		{4052F657-F9C3-4927-A24D-DF1904FE464D} = {E3D05D1C-91E8-4F26-A9E2-0B8A44F88749}
 		{4F5808B8-DB8B-4B96-8A50-2D4CC7562653} = {A879A505-F587-406E-B53F-9ED18C3A12C6}
 		{9436FB56-ACD2-4114-8D8D-EA184FD59A29} = {A879A505-F587-406E-B53F-9ED18C3A12C6}
+		{87F7A8BA-4F17-4DC3-8688-A933ACAEE33F} = {A879A505-F587-406E-B53F-9ED18C3A12C6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {320FE740-FB64-4155-B2C2-E656482201BE}

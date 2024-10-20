@@ -17,12 +17,12 @@ public class Function
     /// <param name="input">The event for the Lambda function handler to process.</param>
     /// <param name="context">The ILambdaContext that provides methods for logging and describing the Lambda environment.</param>
     /// <returns></returns>
-    public JsonElement FunctionHandler(LambdaRequest input, ILambdaContext context)
+    public async Task<JsonElement> FunctionHandler(LambdaRequest input, ILambdaContext context)
     {
         var result = input!.Table switch
         {
             DbTable.NA => Error.NewReturnValue("Please specify table!"),
-            DbTable.SudokuProblems => SudokuProblems.LambdaFunction.FunctionHandler(input),
+            DbTable.SudokuProblems => await SudokuProblems.LambdaFunction.FunctionHandler(input),
             _ => throw new ArgumentOutOfRangeException()
         };
 

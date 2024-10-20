@@ -9,8 +9,11 @@ using DataAccess.Structures;
 namespace SudokuProblems
 {
     [Serializable]
-    internal class SudokuProblemsRequest : IRequestObject
+    internal class SudokuProblemsRequest(Difficulty? difficulty) : IRequestObject
     {
-        public Difficulty? Difficulty { get; set; }
+        // For deserialization
+        public SudokuProblemsRequest() : this(null) { }
+
+        public Difficulty? Difficulty { get; set; } = difficulty;
     }
 }

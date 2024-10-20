@@ -11,14 +11,14 @@ namespace SudokuProblems
 {
     public static class LambdaFunction
     {
-        public static IReturnValue FunctionHandler(LambdaRequest request)
+        public static async Task<IReturnValue> FunctionHandler(LambdaRequest request)
         {
             try
             {
                 if (request.Method == "Random")
                 {
                     var sudokuRequest = request.RequestParameters.Deserialize<SudokuProblemsRequest>();
-                    var problem = Random.Get(sudokuRequest!.Difficulty);
+                    var problem = await Random.Get(sudokuRequest!.Difficulty);
                     return ReturnValue<Sudoku>.NewSuccessReturn(problem);
                 }
                 else return Error.NewReturnValue($"Do not recognise method {request.Method}!");

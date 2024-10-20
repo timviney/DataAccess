@@ -3,16 +3,17 @@ using Xunit;
 using Amazon.Lambda.Core;
 using Amazon.Lambda.TestUtilities;
 using DataAccess.Structures;
+using SudokuProblems;
+using Amazon.DynamoDBv2.Model;
+using Amazon.DynamoDBv2;
 
 namespace DataAccess.Tests;
 
 public class FunctionTest
 {
     [Fact]
-    public void TestToUpperFunction()
+    public async Task TestNoTable()
     {
-
-        // Invoke the lambda function and confirm the string was upper cased.
         var function = new Function();
         var context = new TestLambdaContext();
         var request = new LambdaRequest()
@@ -21,9 +22,33 @@ public class FunctionTest
             Method = "",
             RequestParameters = JsonSerializer.SerializeToElement("")
         };
-        var input = JsonSerializer.Serialize(request);
-        var result = function.FunctionHandler(input, context);
+        var result = await function.FunctionHandler(request, context);
 
-        Assert.Equal("Please specify table!", result);
+        var expected = Error.NewReturnValue("Please specify table!");
+        var actual = result.Deserialize<ReturnValue<int>>(ApiOptions.Options);
+
+        Assert.Equal(expected, actual);
+    }
+
+
+    [Fact]
+    public async Task TestSudoku()
+    {
+        var function = new Function();
+        var context = new TestLambdaContext();
+        var request = new LambdaRequest()
+        {
+            Table = DbTable.SudokuProblems,
+            Method = "Random",
+            RequestParameters = JsonSerializer.SerializeToElement(new SudokuProblemsRequest(Difficulty.Medium))
+        };
+
+        var result = await function.FunctionHandler(request, context);
+        var resultValue = result.Deserialize<ReturnValue<Sudoku>>(ApiOptions.Options);
+
+        Assert.NotNull(resultValue);
+        Assert.True(resultValue.Success);
+        Assert.NotNull(resultValue.Result);
+        Assert.NotNull(resultValue.Result.Grid);
     }
 }

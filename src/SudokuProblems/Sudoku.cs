@@ -9,6 +9,8 @@ namespace SudokuProblems
     internal record Sudoku(int[][] Grid)
     {
         private const int DefaultSize = 9;
+
+        public Sudoku() : this((int[][])null){}
         public Sudoku(string puzzleString) : this(new int[DefaultSize][])
         {
             int row = -1;

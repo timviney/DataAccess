@@ -2,9 +2,9 @@
 {
     internal class Random
     {
-        public static Sudoku Get(Difficulty? difficulty = null)
+        public static async Task<Sudoku> Get(Difficulty? difficulty = null)
         {
-            return MockDb.Get();
+            return await DynamoDb.Get();
         }
     }
 }
