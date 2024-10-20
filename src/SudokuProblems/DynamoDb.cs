@@ -11,7 +11,7 @@ namespace SudokuProblems
     internal static class DynamoDb
     {
         private const int ItemsInDb = 100;
-        public static async Task<Sudoku> Get()
+        public static async Task<Sudoku> Get(Difficulty? difficulty1)
         {
             System.Random random = new();
             var id = random.Next(ItemsInDb);
@@ -19,7 +19,7 @@ namespace SudokuProblems
             // Initialize the DynamoDB client
             var client = new AmazonDynamoDBClient();
 
-            string difficulty = "medium";
+            string difficulty = "Medium";
 
             var request = new GetItemRequest
             {

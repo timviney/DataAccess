@@ -24,8 +24,8 @@ public class FunctionTest
         };
         var result = await function.FunctionHandler(request, context);
 
-        var expected = Error.NewReturnValue("Please specify table!");
-        var actual = result.Deserialize<ReturnValue<int>>(ApiOptions.Options);
+        var expected = Error.NewReturnValue<Sudoku>("Please specify table!");
+        var actual = result.Deserialize<ReturnValue<Sudoku>>(ApiOptions.Options);
 
         Assert.Equal(expected, actual);
     }

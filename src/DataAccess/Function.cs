@@ -21,7 +21,7 @@ public class Function
     {
         var result = input!.Table switch
         {
-            DbTable.NA => Error.NewReturnValue("Please specify table!"),
+            DbTable.NA => Error.NewReturnValue<object>("Please specify table!"),
             DbTable.SudokuProblems => await SudokuProblems.LambdaFunction.FunctionHandler(input),
             _ => throw new ArgumentOutOfRangeException()
         };

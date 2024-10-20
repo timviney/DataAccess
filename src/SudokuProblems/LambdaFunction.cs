@@ -21,11 +21,11 @@ namespace SudokuProblems
                     var problem = await Random.Get(sudokuRequest!.Difficulty);
                     return ReturnValue<Sudoku>.NewSuccessReturn(problem);
                 }
-                else return Error.NewReturnValue($"Do not recognise method {request.Method}!");
+                else return Error.NewReturnValue<Sudoku>($"Do not recognise method {request.Method}!");
             }
             catch (Exception e)
             {
-                return Error.NewReturnValue($"ERROR! {e}");
+                return Error.NewReturnValue<Sudoku>($"ERROR! {e}");
             }
         }
     }
