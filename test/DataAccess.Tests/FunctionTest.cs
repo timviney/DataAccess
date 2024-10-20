@@ -40,7 +40,7 @@ public class FunctionTest
         {
             Table = DbTable.SudokuProblems,
             Method = "Random",
-            RequestParameters = JsonSerializer.SerializeToElement(new SudokuProblemsRequest(Difficulty.Medium))
+            RequestParameters = JsonSerializer.SerializeToElement(new SudokuProblemsRequest(Difficulty.medium))
         };
 
         var result = await function.FunctionHandler(request, context);

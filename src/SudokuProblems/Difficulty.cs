@@ -8,8 +8,9 @@ namespace SudokuProblems
 {
     public enum Difficulty
     {
-        Easy,
-        Medium,
-        Hard
+        // camelCase to align with frontend format and because custom deserialisation is the devil
+        easy,
+        medium,
+        hard
     }
 }
