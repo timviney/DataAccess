@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SudokuProblems
 {
+    // camelCase to align with frontend format and because custom deserialisation is the devil
     public enum Difficulty
     {
-        // camelCase to align with frontend format and because custom deserialisation is the devil
         easy,
         medium,
         hard

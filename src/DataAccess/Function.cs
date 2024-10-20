@@ -1,16 +1,14 @@
 using System.Text.Json;
-using System.Text.Json.Serialization;
 using Amazon.Lambda.Core;
 using DataAccess.Structures;
 
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
-[assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.SystemTextJson.DefaultLambdaJsonSerializer))]
+[assembly: LambdaSerializer(typeof(CustomLambdaSerialiser))]
 
 namespace DataAccess;
-
 public class Function
 {
-    
+
     /// <summary>
     /// A simple function that takes a string and returns both the upper and lower case version of the string.
     /// </summary>

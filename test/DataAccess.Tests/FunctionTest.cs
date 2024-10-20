@@ -39,7 +39,7 @@ public class FunctionTest
         var request = new LambdaRequest()
         {
             Table = DbTable.SudokuProblems,
-            Method = "Random",
+            Method = "random",
             RequestParameters = JsonSerializer.SerializeToElement(new SudokuProblemsRequest(Difficulty.medium))
         };
 

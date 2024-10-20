@@ -15,9 +15,10 @@ namespace SudokuProblems
         {
             try
             {
-                if (request.Method == "Random")
+                if (request.Method == "random")
                 {
-                    var sudokuRequest = request.RequestParameters.Deserialize<SudokuProblemsRequest>();
+                    Console.WriteLine(JsonSerializer.Serialize(request));
+                    var sudokuRequest = request.RequestParameters.Deserialize<SudokuProblemsRequest>(ApiOptions.Options);
                     var problem = await Random.Get(sudokuRequest!.Difficulty);
                     return ReturnValue<Sudoku>.NewSuccessReturn(problem);
                 }
@@ -25,7 +26,7 @@ namespace SudokuProblems
             }
             catch (Exception e)
             {
-                return Error.NewReturnValue<Sudoku>($"ERROR! {e}");
+                return Error.NewReturnValue<Sudoku>($"ERROR! {request.RequestParameters} {e}");
             }
         }
     }
