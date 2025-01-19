@@ -43,7 +43,7 @@ namespace StockData
                     await ReadCsvWithinTimeRange(from, to, response, results);
                 }
 
-                return results.Reverse().ToDictionary();
+                return results.ToDictionary();
             }
             catch (Exception e)
             {
