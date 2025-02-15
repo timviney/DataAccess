@@ -24,7 +24,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess.Structures", "sr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AwsDynamoDb", "src\AwsDynamoDb\AwsDynamoDb.csproj", "{87F7A8BA-4F17-4DC3-8688-A933ACAEE33F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockData", "src\StockData\StockData.csproj", "{FB3EBC7A-37A6-4EA9-9F24-D305D33D733F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockData", "src\StockData\StockData.csproj", "{FB3EBC7A-37A6-4EA9-9F24-D305D33D733F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ad-hoc", "ad-hoc", "{34C842FA-2D62-4AA3-9E22-6BEDE83FD3D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataTidy", "ad-hoc\DataTidy\DataTidy.csproj", "{ED03C049-2B59-4063-8398-39379027B8C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,6 +60,10 @@ Global
 		{FB3EBC7A-37A6-4EA9-9F24-D305D33D733F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB3EBC7A-37A6-4EA9-9F24-D305D33D733F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB3EBC7A-37A6-4EA9-9F24-D305D33D733F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED03C049-2B59-4063-8398-39379027B8C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED03C049-2B59-4063-8398-39379027B8C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED03C049-2B59-4063-8398-39379027B8C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED03C049-2B59-4063-8398-39379027B8C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +75,7 @@ Global
 		{9436FB56-ACD2-4114-8D8D-EA184FD59A29} = {A879A505-F587-406E-B53F-9ED18C3A12C6}
 		{87F7A8BA-4F17-4DC3-8688-A933ACAEE33F} = {A879A505-F587-406E-B53F-9ED18C3A12C6}
 		{FB3EBC7A-37A6-4EA9-9F24-D305D33D733F} = {A879A505-F587-406E-B53F-9ED18C3A12C6}
+		{ED03C049-2B59-4063-8398-39379027B8C4} = {34C842FA-2D62-4AA3-9E22-6BEDE83FD3D4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {320FE740-FB64-4155-B2C2-E656482201BE}
