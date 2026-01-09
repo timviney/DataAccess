@@ -14,7 +14,7 @@ namespace StockData
     {
         private static readonly IAmazonS3 S3Client = new AmazonS3Client(S3DataStore.BucketRegion);
 
-        public static async Task UploadFilesAsync(List<MarketDataEntry> entries, string interval, string symbol)
+        public static async Task UploadFilesAsync(List<MarketDataEntry> entries, string interval, string symbol, bool uploadPotentiallyIncompleteMonths = false)
         {
             try
             {
@@ -32,6 +32,11 @@ namespace StockData
                     }
 
                     entriesForMonth.Add(entry);
+                }
+
+                if (uploadPotentiallyIncompleteMonths && entriesForMonth.Count > 0)
+                {
+                    await UploadCsvToS3Async(entriesForMonth, month, interval, symbol);
                 }
             }
             catch (AmazonS3Exception e)

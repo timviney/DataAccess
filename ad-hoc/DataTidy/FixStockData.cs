@@ -39,12 +39,63 @@ namespace DataTidy
                         }
                     }
 
+                    if (Math.Abs(val.High * 0.01m - val.Open) < 0.1m * val.Open)
+                    {
+                        // If it is, multiply by 100 and replace.
+                        val = val with
+                        {
+                            High = val.High / 100,
+                            Close = val.Close / 100,
+                        };
+
+                        data[dateTime] = val;
+
+                        updated = true;
+                    }
+
                     previousVal = val;
                 }
 
                 if (!updated) continue;
 
-                await Uploader.UploadFilesAsync(data.Values.ToList(), "60min", symbol.ToString());
+                await Uploader.UploadFilesAsync(data.Values.ToList(), "60min", symbol.ToString(), true);
+            }
+        }
+
+
+        public static async Task Fix2()
+        {
+            using var downloader = new Downloader();
+            foreach (var symbol in Enum.GetValues<Symbol>())
+            {
+                var data = await downloader.GetDataAsync(symbol.ToString(),
+                    "60min", new DateTime(2024, 04, 01), new DateTime(2024, 04, 30, 23, 59, 59));
+
+                var dateTimes = data.Keys.ToArray();
+                bool updated = false;
+                foreach (var dateTime in dateTimes)
+                {
+                    var val = data[dateTime];
+
+                    // check if value is 100 times too big
+                    if (Math.Abs(val.High * 0.01m - val.Open) < 0.1m * val.Open)
+                    {
+                        // If it is, multiply by 100 and replace.
+                        val = val with
+                        {
+                            High = val.High / 100,
+                            Close = val.Close / 100,
+                        };
+
+                        data[dateTime] = val;
+
+                        updated = true;
+                    }
+                }
+
+                if (!updated) continue;
+
+                await Uploader.UploadFilesAsync(data.Values.ToList(), "60min", symbol.ToString(), true);
             }
         }
 
