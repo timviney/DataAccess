@@ -15,14 +15,20 @@ namespace SudokuProblems
         {
             try
             {
-                if (request.Method == "random")
+                switch (request.Method)
                 {
-                    Console.WriteLine(JsonSerializer.Serialize(request));
-                    var sudokuRequest = request.RequestParameters.Deserialize<SudokuProblemsRequest>(ApiOptions.Options);
-                    var problem = await Random.Get(sudokuRequest!.Difficulty);
-                    return ReturnValue<Sudoku>.NewSuccessReturn(problem);
+                    case "random":
+                    {
+                        Console.WriteLine(JsonSerializer.Serialize(request));
+                        var sudokuRequest = request.RequestParameters.Deserialize<SudokuProblemsRequest>(ApiOptions.Options);
+                        var problem = await Random.Get(sudokuRequest!.Difficulty);
+                        return ReturnValue<Sudoku>.NewSuccessReturn(problem);
+                    }
+                    case "wakeUp":
+                        return ReturnValue<string>.NewSuccessReturn("I'm awake!");
+                    default:
+                        return Error.NewReturnValue<Sudoku>($"Do not recognise method {request.Method}!");
                 }
-                else return Error.NewReturnValue<Sudoku>($"Do not recognise method {request.Method}!");
             }
             catch (Exception e)
             {
