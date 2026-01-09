@@ -11,6 +11,7 @@ namespace SudokuProblems
 {
     public static class LambdaFunction
     {
+        
         public static async Task<IReturnValue> FunctionHandler(LambdaRequest request)
         {
             try
@@ -25,6 +26,7 @@ namespace SudokuProblems
                         return ReturnValue<Sudoku>.NewSuccessReturn(problem);
                     }
                     case "wakeUp":
+                        await DynamoDb.WakeUp();
                         return ReturnValue<string>.NewSuccessReturn("I'm awake!");
                     default:
                         return Error.NewReturnValue<Sudoku>($"Do not recognise method {request.Method}!");
